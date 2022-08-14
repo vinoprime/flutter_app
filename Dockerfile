@@ -28,9 +28,9 @@ RUN flutter upgrade
 RUN flutter config --enable-web
 
 # Copy files to container and build
-RUN mkdir /app/
+RUN mkdir /app
 COPY . /app/
-WORKDIR /app/
+# WORKDIR /app/
 RUN flutter pub get
 RUN flutter clean
 RUN flutter build web
