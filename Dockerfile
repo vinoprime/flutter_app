@@ -1,33 +1,19 @@
-FROM ubuntu:18.04
-   
-# Prerequisites
-RUN apt update && apt install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget
-   
-# Set up new user
-RUN useradd -ms /bin/bash developer
-USER developer
-WORKDIR /home/developer
-   
-# Prepare Android directories and system variables
-RUN mkdir -p Android/sdk
-ENV ANDROID_SDK_ROOT /home/developer/Android/sdk
-RUN mkdir -p .android && touch .android/repositories.cfg
-   
-# Set up Android SDK
-RUN wget -O sdk-tools.zip https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
-RUN unzip sdk-tools.zip && rm sdk-tools.zip
-RUN mv tools Android/sdk/tools
-RUN cd Android/sdk/tools/bin && yes | ./sdkmanager --licenses
-RUN cd Android/sdk/tools/bin && ./sdkmanager "build-tools;29.0.2" "patcher;v4" "platform-tools" "platforms;android-29" "sources;android-29"
-ENV PATH "$PATH:/home/developer/Android/sdk/platform-tools"
+FROM ubuntu:20.04
 
-# Download Flutter SDK
-# RUN git clone https://github.com/flutter/flutter.git
-RUN git clone https://github.com/vinoprime/flutter_app.git
-# ENV PATH "$PATH:/home/developer/flutter/bin"
-   
-# Run basic check to download Dark SDK
-RUN flutter doctor
+RUN apt-get update && apt-get install -yq curl file git unzip xz-utils zip && rm -rf /var/lib/apt/lists/*
+
+RUN useradd -m flutter
+RUN mkdir /opt/flutter && chown flutter:flutter /opt/flutter
+USER flutter
+WORKDIR /home/flutter
+
+ARG VERSION
+
+RUN git clone -b ${VERSION} https://github.com/flutter/flutter.git /opt/flutter
+ENV PATH $PATH:/opt/flutter/bin
+RUN flutter config --no-analytics --enable-web --no-enable-android --no-enable-ios
+RUN flutter precache --web
+RUN flutter create --platforms web dummy && rm -rf dummy
 
 # # Stage 1 - Install dependencies and build the app
 # FROM debian:latest AS build-env
