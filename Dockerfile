@@ -20,11 +20,9 @@ RUN mv flutter /usr/local/flutter
 RUN /usr/local/flutter/bin/flutter doctor -v
 ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
-# Run flutter doctor
-RUN flutter doctor -v
 # Enable flutter web
 RUN flutter channel master
-RUN flutter upgrade --force
+# RUN flutter upgrade --force
 RUN flutter config --enable-web
 
 # Copy files to container and build
