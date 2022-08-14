@@ -1,12 +1,15 @@
 # Stage 1 - Install dependencies and build the app
-FROM debian:latest AS build-env
+# FROM debian:latest AS build-env
+FROM ubuntu:latest AS build-env
 
 
 # Install flutter dependencies
 RUN apt-get update 
 RUN apt-get install -y curl git wget unzip 
-RUN gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3
+RUN libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3
 RUN apt-get clean
+
+RUN snap install flutter --classic
 
 # Clone the flutter repo
 RUN git clone https://github.com/flutter/flutter.git -b stable /usr/local/flutter
