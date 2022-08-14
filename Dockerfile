@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
-
-CMD ["/bin/ping","localhost"]
+ENTRYPOINT ["/bin/echo", "Hi, your ENTRYPOINT instruction in Exec Form !"]
+# CMD ["/bin/ping","localhost"]
 
 
 # # Stage 1 - Install dependencies and build the app
