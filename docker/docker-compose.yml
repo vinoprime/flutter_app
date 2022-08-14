@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  flutter_web:
+    container_name: flutter_web
+    build: .
+    image: flutter_web:test-0.0.2
+    restart: unless-stopped  
+    networks:
+      - proxy_net
+
+networks:
+  proxy_net:
+    external: true
