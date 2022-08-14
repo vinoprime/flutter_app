@@ -5,7 +5,7 @@ FROM debian:latest AS build-env
 # Install flutter dependencies
 RUN apt-get update 
 RUN apt-get install -y curl git wget unzip 
-RUN libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3
+RUN gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3
 RUN apt-get clean
 
 # Clone the flutter repo
