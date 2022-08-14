@@ -1,6 +1,8 @@
-FROM ubuntu:20.04
-
-ENTRYPOINT ["/bin/echo", "Hi, your ENTRYPOINT instruction in Exec Form !"]
+FROM ubuntu:latest
+RUN apt-get update &amp;&amp; \
+    apt-get install -y apache2-utils &amp;&amp; \
+    rm -rf /var/lib/apt/lists/*
+CMD ab
 # CMD ["/bin/ping","localhost"]
 
 
