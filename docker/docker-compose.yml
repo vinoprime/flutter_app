@@ -3,7 +3,7 @@ version: '3.7'
 services:
   flutter_web:
     container_name: flutter_web
-    build: .
+    build: ./../
     image: flutter_web:test-0.0.2
     restart: unless-stopped  
     networks:
