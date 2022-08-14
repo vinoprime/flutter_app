@@ -24,6 +24,8 @@ RUN flutter config --enable-web
 RUN mkdir /app/
 COPY . /app/
 WORKDIR /app/
+RUN flutter pub get
+RUN flutter clean
 RUN flutter build web
 
 # Stage 2 - Create the run-time image
