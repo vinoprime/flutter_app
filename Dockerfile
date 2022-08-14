@@ -1,6 +1,8 @@
 FROM ubuntu:20.04
 
 
+CMD ping localhost
+
 
 # # Stage 1 - Install dependencies and build the app
 # FROM debian:latest AS build-env
