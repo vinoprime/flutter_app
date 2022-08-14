@@ -12,7 +12,9 @@ RUN apt-get clean
 RUN apt --fix-broken install
 
 # Clone the flutter repo
-RUN git clone https://github.com/flutter/flutter.git -b stable /usr/local/flutter
+RUN mkdir flutter
+RUN git clone https://github.com/flutter/flutter.git -b stable 
+RUN mv flutter /usr/local/flutter
 
 # Set flutter path
 RUN /usr/local/flutter/bin/flutter doctor -v
