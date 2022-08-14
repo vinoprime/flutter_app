@@ -1,10 +1,7 @@
 # Stage 1 - Install dependencies and build the app
 FROM debian:10 AS build-env
-# FROM ubuntu:latest AS build-env
-
 
 # Install flutter dependencies
-RUN apt --fix-broken install
 RUN apt-get update 
 RUN apt-get install -y curl git wget unzip 
 RUN apt-get install -y libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3
@@ -22,12 +19,11 @@ ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PAT
 
 # Enable flutter web
 RUN flutter channel master
-# RUN flutter upgrade --force
 RUN flutter config --enable-web
 
 # Copy files to container and build
 RUN mkdir /app
-COPY . /app/
+COPY . /app
 WORKDIR /app
 RUN flutter pub get
 RUN flutter clean
