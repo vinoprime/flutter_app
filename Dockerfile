@@ -8,7 +8,7 @@ RUN apt --fix-broken install
 RUN apt-get update 
 RUN apt-get install -y curl git wget unzip 
 # RUN libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3
-RUN lib32stdc++6 python3
+RUN python3
 RUN apt-get clean
 RUN apt --fix-broken install
 
