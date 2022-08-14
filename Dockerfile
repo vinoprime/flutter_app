@@ -1,6 +1,10 @@
 # Stage 1 - Install dependencies and build the app
 FROM debian:latest AS build-env
 
+
+RUN rm /var/lib/dpkg/info/linux-generic.list 
+RUN apt-get install linux-generic --reinstall
+
 # Install flutter dependencies
 RUN apt-get update 
 RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3
