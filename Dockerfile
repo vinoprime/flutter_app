@@ -11,8 +11,6 @@ RUN apt-get install -y libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fall
 RUN apt-get clean
 RUN apt --fix-broken install
 
-RUN snap install flutter --classic
-
 # Clone the flutter repo
 RUN git clone https://github.com/flutter/flutter.git -b stable /usr/local/flutter
 
