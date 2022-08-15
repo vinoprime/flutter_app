@@ -7,8 +7,13 @@ class ProductPage extends StatelessWidget {
   Widget build(Object context) {
     return Scaffold(
         appBar: AppBar(title: const Text("Product Detail")),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[Text("Details")]));
+        body: Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+              Image.asset("assets/images/Dog_1.png"),
+              const Text("Details")
+            ])));
   }
 }

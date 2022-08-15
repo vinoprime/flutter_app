@@ -3,7 +3,7 @@ FROM debian:10 AS build-env
 
 # Install flutter dependencies
 RUN apt-get update -y
-RUN apt-get install -y git wget tar curl
+RUN apt-get install -y git wget tar curl unzip
 
 # RUN wget -c https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.0.5-stable.tar.xz -O - | tar -xf
 
