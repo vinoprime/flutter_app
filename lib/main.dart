@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/screens/home.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_app/configs/config.dart';
 
-import 'configs/config.dart';
+import 'pages/home-page.dart';
+
+// void main() => runApp(const MyApp());
 
 void main() {
-  runApp(MyApp());
+  // debugPaintSizeEnabled = true;
+  // shrinkWrap: true;
+  // _debugDuringDeviceUpdate = true;
+  runApp(const MyApp());
 }
 
-// ignore: use_key_in_widget_constructors
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Chat App',
-      theme: ThemeData(
-        primaryColor: Config.colors.primaryColor,
-        fontFamily: "TTNorms",
-      ),
-      home:HomePage(),
-    );
+        theme: ThemeData(
+          brightness: Brightness.light,
+          primaryColor: Config.colors.primaryColor,
+          fontFamily: "TTNorms",
+        ),
+        home: HomePage());
   }
 }

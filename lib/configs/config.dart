@@ -25,9 +25,9 @@ class _Asset {
 }
 
 class _Color {
-  final primaryColor = Color(0xFF2A8BF2);
-  final primaryBlackColor = Color(0xFF0D1C2E);
-  final textColorMenu = Color(0xFF707C97);
+  final primaryColor = const Color(0xFF2A8BF2);
+  final primaryBlackColor = const Color(0xFF0D1C2E);
+  final textColorMenu = const Color(0xFF707C97);
   final backgroundColor1 = Color(0xFFF3F3FB);
   final backgroundColor2 = Color(0xFFFDFBFD);
   final notifColor = Color(0xFFFF3366);
