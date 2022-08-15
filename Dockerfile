@@ -6,10 +6,11 @@ RUN apt --fix-broken install -y
 RUN apt-get update -y
 RUN apt-get install -y git wget tar
 
+RUN mkdir /flutter
 RUN pwd
 WORKDIR /flutter
 RUN pwd
-RUN wget -c https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.0.5-stable.tar.xz -O - | tar -xf
+RUN wget -c https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.0.5-stable.tar.xz -O - | tar -xf /flutter/
 
 # RUN apt-get install -y python3
 # # RUN apt-get install -y libgconf-2-4 gdb    
