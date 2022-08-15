@@ -5,24 +5,15 @@ FROM debian:10 AS build-env
 RUN apt-get update -y
 RUN apt-get install -y git wget tar
 
-RUN mkdir /flutter
-RUN pwd
-WORKDIR /flutter
-RUN pwd
-RUN wget -c https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.0.5-stable.tar.xz -O - | tar -xf
+# RUN wget -c https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.0.5-stable.tar.xz -O - | tar -xf
 
-# RUN apt-get install -y python3
-# # RUN apt-get install -y libgconf-2-4 gdb    
-# # RUN apt-get install -y libglu1-mesa 
-# # RUN apt-get install -y libstdc++6
-# # RUN apt-get install -y fonts-droid-fallback
-# # RUN apt-get install -y lib32stdc++6
-# RUN apt-get clean
-# RUN apt --fix-broken install
-
-RUN pwd
-WORKDIR /app
-RUN pwd
+RUN apt-get install -y python3
+RUN apt-get install -y libgconf-2-4 gdb    
+RUN apt-get install -y libglu1-mesa 
+RUN apt-get install -y libstdc++6
+RUN apt-get install -y fonts-droid-fallback
+RUN apt-get install -y lib32stdc++6
+RUN apt-get clean
 
 # Clone the flutter repo
 RUN mkdir flutter
