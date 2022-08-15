@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/button.dart';
+
 class ProductPage extends StatelessWidget {
   const ProductPage({Key? key}) : super(key: key);
+
+  void _btnPress(String val,) {
+    print("Hello");
+  }
 
   @override
   Widget build(Object context) {
@@ -13,7 +19,12 @@ class ProductPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
               Image.asset("assets/images/Dog_1.png"),
-              const Text("Details")
+              Container(
+                  padding: const EdgeInsets.all(10.0),
+                  child: const Text("Details")),
+              Container(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Button(_btnPress)),
             ])));
   }
 }
