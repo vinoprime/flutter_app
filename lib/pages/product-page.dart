@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatelessWidget {
-  final String title;
-  final String imageUrl;
+  String title;
+  String imageUrl;
 
-  const ProductPage({Key? key, required this.title, required this.imageUrl})
-      : super(key: key);
+  ProductPage(this.title, this.imageUrl) {}
 
   void _btnPress(String val, context) {
     Navigator.pop(context);

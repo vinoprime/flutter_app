@@ -16,7 +16,7 @@ class ProductManager extends StatefulWidget {
 }
 
 class _ProductManager extends State<ProductManager> {
-  final List<String> _products = [];
+  final List<Map<String, String>> _products = [];
 
   @override
   void initState() {
@@ -26,7 +26,7 @@ class _ProductManager extends State<ProductManager> {
     super.initState();
   }
 
-  void _addProduct(String product) {
+  void _addProduct(Map<String, String> product) {
     setState(() {
       _products.add(product);
     });

@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import '../../pages/product-page.dart';
 
 class Products extends StatelessWidget {
-  final List<String> products;
+  List<Map<String, dynamic>> products;
 
-  Products([this.products = const []]) {
-    print("Products constructor");
-  }
+  Products([this.products = const []]) {}
 
-  Widget _buttonPreview(double _height, double _width, BuildContext context) {
+  Widget _buttonPreview(
+      double _height, double _width, BuildContext context, index) {
     final ButtonStyle flatButtonStyle = TextButton.styleFrom(
         minimumSize: Size(_width, _height),
         // backgroundColor: Colors.yellow,
@@ -21,7 +20,8 @@ class Products extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (BuildContext context) => ProductPage()));
+                builder: (BuildContext context) => ProductPage(
+                    products[index]['title'], products[index]['image'])));
       },
       child: const Text(
         "Details",
@@ -34,11 +34,11 @@ class Products extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset('assets/images/Dog_2.png'),
-          Text(products[index]),
+          Image.asset(products[index]['image']),
+          Text(products[index]['title']),
           ButtonBar(
               alignment: MainAxisAlignment.center,
-              children: <Widget>[_buttonPreview(50.0, 100.0, context)])
+              children: <Widget>[_buttonPreview(50.0, 100.0, context, index)])
         ],
       ),
     );

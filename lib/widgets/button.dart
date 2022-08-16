@@ -8,7 +8,7 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        press("Brown");
+        press({'title': 'Choco', 'image': 'assets/images/Dog_2.png'});
       },
       child: const Text("Add Product"),
     );
