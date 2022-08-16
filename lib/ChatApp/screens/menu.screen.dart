@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/configs/config.dart';
+import 'package:flutter_app/ChatApp/widgets/chat-search.widget.dart';
+
+import '../widgets/chat-list.widget.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({Key? key}) : super(key: key);
@@ -14,17 +16,9 @@ class MenuScreen extends StatelessWidget {
         children: [
           Expanded(
               child: Container(
-            padding: const EdgeInsets.only(top: 50, bottom: 50),
             child: Column(
               children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage(Config.assets.user),
-                  radius: 40,
-                  backgroundColor: Colors.white,
-                ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [Text("Hendry")])
+                Container(color: const Color.fromARGB(255, 115, 210, 145), child: ChatSearch()),
               ],
             ),
           ))
