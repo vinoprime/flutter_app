@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             children: [
               Expanded(child: ChatListScreen()),
-              Expanded(flex: 2, child: ChatDetailScreen()),
+              Expanded(flex: 3, child: ChatDetailScreen()),
             ],
           )),
     ])));
