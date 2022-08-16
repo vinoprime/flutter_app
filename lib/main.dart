@@ -24,6 +24,6 @@ class MyApp extends StatelessWidget {
           primaryColor: Config.colors.primaryColor,
           fontFamily: "TTNorms",
         ),
-        home: HomePage());
+        home: const HomePage());
   }
 }

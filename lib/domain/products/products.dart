@@ -21,7 +21,7 @@ class Products extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (BuildContext context) => const ProductPage()));
+                builder: (BuildContext context) => ProductPage()));
       },
       child: const Text(
         "Details",

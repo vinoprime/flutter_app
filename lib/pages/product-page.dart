@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/button.dart';
-
 class ProductPage extends StatelessWidget {
-  const ProductPage({Key? key}) : super(key: key);
+  final String title;
+  final String imageUrl;
 
-  void _btnPress(String val,) {
-    print("Hello");
+  const ProductPage({Key? key, required this.title, required this.imageUrl})
+      : super(key: key);
+
+  void _btnPress(String val, context) {
+    Navigator.pop(context);
   }
 
   @override
-  Widget build(Object context) {
+  Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Product Detail")),
+        appBar: AppBar(title: Text(title)),
         body: Center(
             child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-              Image.asset("assets/images/Dog_1.png"),
+              Image.asset(imageUrl),
               Container(
                   padding: const EdgeInsets.all(10.0),
                   child: const Text("Details")),
               Container(
                   padding: const EdgeInsets.all(10.0),
-                  child: Button(_btnPress)),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _btnPress("Hello", context);
+                    },
+                    child: const Text("back"),
+                  )),
             ])));
   }
 }
