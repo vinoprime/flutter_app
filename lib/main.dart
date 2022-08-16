@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_app/configs/config.dart';
 
-import 'pages/home-page.dart';
+import 'pages/auth-page.dart';
 
 // void main() => runApp(const MyApp());
 
@@ -24,6 +24,6 @@ class MyApp extends StatelessWidget {
           primaryColor: Config.colors.primaryColor,
           fontFamily: "TTNorms",
         ),
-        home: const HomePage());
+        home: const AuthPage());
   }
 }
