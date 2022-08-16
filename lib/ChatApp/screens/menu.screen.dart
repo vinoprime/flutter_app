@@ -15,13 +15,25 @@ class MenuScreen extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-              child: Container(
             child: Column(
               children: [
-                Container(color: const Color.fromARGB(255, 115, 210, 145), child: ChatSearch()),
+                Container(
+                    color: const Color.fromARGB(255, 115, 210, 145),
+                    child: ChatSearch()),
+                const Text(
+                  "Messages",
+                  // textAlign: TextAlign.left,
+                  style: TextStyle(color: Colors.black, fontSize: 25.0),
+                ),
+                const Text(
+                  "Vous avez 2 nouveaux messages",
+                  // textAlign: TextAlign.left,
+                  style: TextStyle(color: Colors.grey, fontSize: 15.0),
+                ),
+                const ChatList()
               ],
             ),
-          ))
+          )
         ],
       ),
     );

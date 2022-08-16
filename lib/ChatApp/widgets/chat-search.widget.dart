@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ChatSearch extends StatelessWidget {
   ChatSearch({Key? key}) : super(key: key);
 
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
