@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../domain/products/product_manager.dart';
 
 class HomePage extends StatelessWidget {
@@ -6,8 +7,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return ProductManager(initialProduct: "prodcut-1");
-    // return ProductManager(initialProduct: "prodcut-1");
     return Scaffold(
         appBar: AppBar(
           title: const Text("PRODUCTS"),
