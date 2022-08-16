@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../pages/product-page.dart';
+import 'screens/product-detail.screen.dart';
+
 
 class Products extends StatelessWidget {
   final List<Map<String, dynamic>> products;
@@ -22,7 +23,7 @@ class Products extends StatelessWidget {
         Navigator.push<bool>(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => ProductPage(
+                    builder: (BuildContext context) => ProductDetailScreen(
                         products[index]['title'], products[index]['image'])))
             .then((bool? value) {
           print(value);

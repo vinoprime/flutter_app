@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/widgets/button.dart';
 
-import './products.dart';
+import 'products.dart';
 
 class ProductManager extends StatefulWidget {
   dynamic initialProduct;

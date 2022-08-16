@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ProductPage extends StatelessWidget {
+class ProductDetailScreen extends StatelessWidget {
   String title;
   String imageUrl;
 
-  ProductPage(this.title, this.imageUrl) {}
+  ProductDetailScreen(this.title, this.imageUrl) {}
 
   void _btnDelete(String val, context) {
     Navigator.pop(context, true);
@@ -28,7 +28,7 @@ class ProductPage extends StatelessWidget {
                   Image.asset(imageUrl),
                   Container(
                       padding: const EdgeInsets.all(10.0),
-                      child: const Text("Details")),
+                      child: const Text("Prodcut Details...")),
                   Container(
                       padding: const EdgeInsets.all(10.0),
                       child: ElevatedButton(

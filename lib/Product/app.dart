@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/configs/config.dart';
 
-import 'Product/app.dart';
+import 'screens/auth.screen.dart';
 
 
-void main() => runApp(const MyApp());
 
-// void main() {
-//   // debugPaintSizeEnabled = true;
-//   // shrinkWrap: true;
-//   // _debugDuringDeviceUpdate = true;
-//   runApp(const MyApp());
-// }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +20,6 @@ class MyApp extends StatelessWidget {
           fontFamily: "TTNorms",
         ),
         // home: const AuthPage());
-        home: const App());
+        home: const AuthScreen());
   }
 }

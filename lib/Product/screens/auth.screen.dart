@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'home-page.dart';
+import 'home.screen.dart';
 
-class AuthPage extends StatelessWidget {
-  const AuthPage({Key? key}) : super(key: key);
+class AuthScreen extends StatelessWidget {
+  const AuthScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class AuthPage extends StatelessWidget {
                 onPressed: () {
                   print("Press");
                   Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => const HomePage()));
+                      MaterialPageRoute(builder: (context) => const HomeScreen()));
                 },
                 child: const Text("Sign"))));
   }
