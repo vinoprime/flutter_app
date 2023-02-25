@@ -1,0 +1,47 @@
+# Install Operating system and dependencies
+FROM debian:10 AS build
+
+RUN apt-get update 
+RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3
+RUN apt-get clean
+
+# download Flutter SDK from Flutter Github repo
+RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
+
+
+# Set flutter environment path
+ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
+
+
+# Set the permissions for the flutter directory
+RUN chown -R root:root /usr/local/flutter
+
+
+RUN flutter config --enable-web --no-enable-android --no-enable-ios --no-enable-windows-desktop --no-enable-linux-desktop --no-enable-macos-desktop
+# Run flutter doctor
+RUN flutter doctor -v
+
+
+# Enable flutter web
+RUN flutter channel 3.3
+RUN flutter upgrade
+
+
+# Copy files to container and build
+RUN mkdir /app/
+COPY . /app/
+WORKDIR /app/
+RUN flutter build web --web-renderer canvaskit --release
+
+
+# Stage 2 - deploy the app
+FROM nginx:alpine
+
+# Copy the build artifacts to the nginx directory
+COPY --from=build /app/build/web/ /usr/share/nginx/html/
+
+# Expose port 80
+EXPOSE 80
+
+# Start the nginx server
+CMD ["nginx", "-g", "daemon off;"]
